@@ -21,7 +21,7 @@ public class EmployeeWageComputation {
         int day = 1;
         int totalWorkingHour = 0;
 
-        while (day <= MAX_Days && totalWorkingHour <= MAX_HOURS) {
+        while (day <= MAX_Days && totalWorkingHour < MAX_HOURS) {
             attendence = checkAttendence();
             switch (attendence) {
                 case IS_FULL_TIME:
