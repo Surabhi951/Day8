@@ -6,6 +6,7 @@ public class EmployeeWageComputation {
     static final int FULL_DAY_HOUR = 16;
     static final int IS_PART_TIME = 1;
     static final int PART_TIME_HOUR = 8;
+    static final int NO_OF_WORKING_DAYS = 2;
 
     static int checkAttendence() {
         return (int) (Math.random() * 10) % 3;
@@ -15,21 +16,26 @@ public class EmployeeWageComputation {
         System.out.println("Welcome to employee computation program");
         int attendence;
         int dailyWage = 0;
+        int totalWage = 0;
+        int day = 0;
 
-        attendence = checkAttendence();
-        switch (attendence){
-            case IS_FULL_TIME:
-            dailyWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
-            break;
+        for (day = 0; day < NO_OF_WORKING_DAYS; day++) {
+            attendence = checkAttendence();
+            switch (attendence) {
+                case IS_FULL_TIME:
+                    dailyWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
+                    break;
 
-            case IS_PART_TIME:
-            dailyWage = WAGE_PER_HOUR * PART_TIME_HOUR;
-            break;
-            default:
-                break;
+                case IS_PART_TIME:
+                    dailyWage = WAGE_PER_HOUR * PART_TIME_HOUR;
+                    break;
+                default:
+                    break;
+            }
+            totalWage += dailyWage;
+            System.out.println("Daily Wage:" + dailyWage);
+            System.out.println("Total Wage of month:" + totalWage);
         }
-
-        System.out.println("Daily Wage:" + dailyWage);
-
+//        System.out.println("Total Days:" + (day-1));
     }
 }
