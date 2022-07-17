@@ -1,63 +1,63 @@
 package com.bridgelabz;
+class Points {
+        int x1;
+        int y1;
+        int x2;
+        int y2;
 
-import java.util.Scanner;
+        public Points(int x1, int y1, int x2, int y2) {
+            super();
+            this.x1 = x1;
+            this.y1 = y1;
+            this.x2 = x2;
+            this.y2 = y2;
+        }
+    }
 
 public class LineComparison {
-    public static void main(String[] args) {
-        System.out.println("Welcome to a Line Comparison Computation Program");
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter coordinates of first point x1 y1 : ");
-        int x1 = sc.nextInt();
-        int y1 = sc.nextInt();
-        System.out.println("Enter coordinates of second point x2 y2 : ");
-        int x2 = sc.nextInt();
-        int y2 = sc.nextInt();
-        double length1 = (Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1)));
-        System.out.printf("length of line is = %.2f ",length1);
-        
-        System.out.println("Enter points of second line : ");
-        System.out.println("Enter coordinates of first point a1 b1 : ");
-        int a1 = sc.nextInt();
-        int b1 = sc.nextInt();
-        System.out.println("Enter coordinates of second point a2 b2 : ");
-        int a2 = sc.nextInt();
-        int b2 = sc.nextInt();
+        public static void main(String[] args) {
+            System.out.println("Welcome to Line Comparison Computation Program");
+            Points point1 = new Points(1, 1, 4, 4);
+            Points point2 = new Points(1, 1, 2, 8);
+            LineComparison line = new LineComparison();
+            double length1 = line.lineLengthCalculate(point1.x1, point1.x2, point1.y1, point1.y2);
+            double length2 = line.lineLengthCalculate(point2.x1, point2.x2, point2.y1, point2.y2);
+            compareTwoLines(length1, length2);
+            checkLineEquality(length1, length2);
+        }
 
-        double length2 = (Math.sqrt((a2-a1)*(a2-a1) + (b2-b1)*(b2-b1)));
-        System.out.printf("length of first line is = %.2f \n ",length2);
+        public int lineLengthCalculate(int x1, int y1, int x2, int y2) {
+            int lineLength = (int) Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
+            return lineLength;
+        }
 
-        
-            Object obj1;
-            Object obj2;
-
-            obj1 = length1;
-            obj2 = length2;
-
-
-            if (obj1.equals(obj2))
-                System.out.println("Lines are equal ");
+        private static void checkLineEquality(Double length, Double length2) {
+            boolean x = (length.equals(length2));
+            if (x)
+            {
+                System.out.println("Length of two lines are equal");
+            }
             else
-                System.out.println("Lines are not equal ");
-
-
-        compareTwoLines(length1, length2);
-
-    }
-    private static void compareTwoLines(Double length, Double length2) {
-        int x = (length.compareTo(length2));
-        if (x > 0)
-        {
-            System.out.println("length of Line 1 is greater than line2");
+            {
+                System.out.println("Length of two lines aren't equal");
+            }
         }
-        else if (x < 0)
-        {
-            System.out.println("length of line 2 is greater than line1");
+
+        private static void compareTwoLines(Double length, Double length2) {
+            int x = (length.compareTo(length2));
+            if (x > 0)
+            {
+                System.out.println("length of Line 1 is greater than line2");
+            }
+            else if (x < 0)
+            {
+                System.out.println("length of line 2 is greater than line1");
+            }
+            else
+            {
+                System.out.println("length of two lines are equal");
+            }
         }
-        else
-        {
-            System.out.println("length of two lines are equal");
-        }
-    }
 
 
 }
