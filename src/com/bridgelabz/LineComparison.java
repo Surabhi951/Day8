@@ -3,7 +3,7 @@ package com.bridgelabz;
 import java.util.Scanner;
 
 public class LineComparison {
-    public static void calculateLength() {
+    public static void main(String[] args) {
         System.out.println("Welcome to a Line Comparison Computation Program");
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter coordinates of first point x1 y1 : ");
@@ -39,13 +39,26 @@ public class LineComparison {
             else
                 System.out.println("Lines are not equal ");
 
+
+        compareTwoLines(length1, length2);
+
+    }
+    private static void compareTwoLines(Double length, Double length2) {
+        int x = (length.compareTo(length2));
+        if (x > 0)
+        {
+            System.out.println("length of Line 1 is greater than line2");
+        }
+        else if (x < 0)
+        {
+            System.out.println("length of line 2 is greater than line1");
+        }
+        else
+        {
+            System.out.println("length of two lines are equal");
+        }
     }
 
-
-    public static void main(String[] args) {
-        System.out.println("Welcome to Line Comparison Computation Program");
-        calculateLength();
-    }
 
 }
 
