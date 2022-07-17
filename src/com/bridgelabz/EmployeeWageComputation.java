@@ -10,10 +10,11 @@ public class EmployeeWageComputation {
     static final int MAX_Days = 20;
 
     static int checkAttendence() {
+
         return (int) (Math.random() * 10) % 3;
     }
 
-    public static void main(String[] args) {
+    public static int computeEmpWage() {
         System.out.println("Welcome to employee computation program");
         int attendence;
         int dailyWage = 0;
@@ -45,5 +46,11 @@ public class EmployeeWageComputation {
         System.out.println("Total Days:" + (day-1));
         System.out.println("Total Working Hour:" + totalWorkingHour);
         System.out.println("Total Wage of month:" + totalWage);
+        return totalWage;
+     }
+
+    public static void main(String[] args) {
+        computeEmpWage();
     }
-}
+    }
+
